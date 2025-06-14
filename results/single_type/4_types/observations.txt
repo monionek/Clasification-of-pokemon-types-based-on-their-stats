@@ -1,0 +1,18 @@
+# Definicja modelu
+model = Sequential([
+    Dense(8, activation='elu', input_shape=(7,)),
+    Dropout(0.2),
+    Dense(4, activation='elu'),
+    Dense(2, activation='elu'),
+    Dense(num_classes, activation='softmax')
+])
+model 3 warstwowy
+# Definicja modelu
+model = Sequential([
+    Dense(8, activation='elu', input_shape=(7,)),
+    Dropout(0.2),
+    Dense(4, activation='elu'),
+    Dense(num_classes, activation='softmax')
+])
+model 2 warstwowy
+powyżej zachodzi do przeuczenia
