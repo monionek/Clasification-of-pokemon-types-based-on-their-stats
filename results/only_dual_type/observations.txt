@@ -1,0 +1,25 @@
+model = Sequential([
+    Dense(128, activation='elu', input_shape=(7,)),
+    Dropout(0.5),
+    Dense(64, activation='elu'),
+    Dropout(0.5),
+    Dense(32, activation='elu'),
+    Dropout(0.5),
+    Dense(16, activation='elu'),
+    Dropout(0.5),
+    Dense(num_classes, activation='softmax')
+])
+najlepszy model każdy inny zachodzi spore niedouczeneie
+
+inna ilość neuronów:
+model = Sequential([
+    Dense(81, activation='elu', input_shape=(7,)),
+    Dropout(0.5),
+    Dense(27, activation='elu'),
+    Dropout(0.5),
+    Dense(9, activation='elu'),
+    Dropout(0.5),
+    Dense(3, activation='elu'),
+    Dropout(0.5),
+    Dense(num_classes, activation='softmax')
+])

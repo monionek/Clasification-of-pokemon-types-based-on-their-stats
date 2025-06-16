@@ -1,0 +1,55 @@
+model = Sequential([
+    Dense(128, activation='elu', input_shape=(7,)),
+    Dropout(0.5),
+    Dense(64, activation='elu'),
+    Dropout(0.5),
+    Dense(32, activation='elu'),
+    Dropout(0.4),
+    Dense(16, activation='elu'),
+    Dropout(0.3),
+    Dense(8, activation='elu'),
+    Dense(num_classes, activation='softmax')
+])
+
+Wider:
+model = Sequential([
+    Dense(256, activation='elu', input_shape=(7,)),
+    Dropout(0.5),
+    Dense(128, activation='elu'),
+    Dropout(0.5),
+    Dense(64, activation='elu'),
+    Dropout(0.4),
+    Dense(32, activation='elu'),
+    Dropout(0.3),
+    Dense(16, activation='elu'),
+    Dense(num_classes, activation='softmax')
+]) niedoczuenie
+
+Less Dense:
+# Define model
+model = Sequential([
+    Dense(256, activation='elu', input_shape=(7,)),
+    Dropout(0.5),
+    Dense(128, activation='elu'),
+    Dropout(0.5),
+    Dense(64, activation='elu'),
+    Dropout(0.4),
+    Dense(num_classes, activation='softmax')
+])
+
+Depper:
+model = Sequential([
+    Dense(256, activation='elu', input_shape=(7,)),
+    Dropout(0.5),
+    Dense(128, activation='elu'),
+    Dropout(0.5),
+    Dense(64, activation='elu'),
+    Dropout(0.4),
+    Dense(32, activation='elu'),
+    Dropout(0.4),
+    Dense(16, activation='elu'),
+    Dropout(0.3),
+    Dense(8, activation='elu'),
+    Dense(num_classes, activation='softmax')
+])
+nie satysakcojunjące wyniki

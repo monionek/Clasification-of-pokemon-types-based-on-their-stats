@@ -1,0 +1,24 @@
+model = Sequential([
+    Dense(64, activation='elu', input_shape=(7,)),
+    Dropout(0.4),
+    Dense(32, activation='elu'),
+    Dropout(0.3),
+    Dense(16, activation='elu'),
+    Dropout(0.2),
+    Dense(8, activation='elu'),
+    Dense(num_classes, activation='softmax')
+])
+po 4 warstwie model przestaje się uczyć
+poniżej 4 warstw zachodzi duże niedoczuenie
+
+# Define model
+model = Sequential([
+    Dense(128, activation='elu', input_shape=(7,)),
+    Dropout(0.4),
+    Dense(64, activation='elu'),
+    Dropout(0.3),
+    Dense(32, activation='elu'),
+    Dropout(0.2),
+    Dense(16, activation='elu'),
+    Dense(num_classes, activation='softmax')
+])
