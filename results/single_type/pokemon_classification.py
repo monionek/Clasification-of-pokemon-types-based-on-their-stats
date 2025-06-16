@@ -11,10 +11,10 @@ import seaborn as sns
 from sklearn.utils.class_weight import compute_class_weight
 
 # 🔧 number of types to clasiffy
-TOP_K_TYPES = 16  # ← change this number, np. 5, 8, 10
+TOP_K_TYPES = 4
 
 # load data
-df = pd.read_csv('./data/Pokemon.csv')
+df = pd.read_csv('../../data/Pokemon.csv')
 
 # 🔍 choose K most common types
 top_types = df['Type 1'].value_counts().nlargest(TOP_K_TYPES).index.tolist()
@@ -51,15 +51,9 @@ early_stop = EarlyStopping(monitor='val_loss', patience=10, restore_best_weights
 
 # Define model
 model = Sequential([
-    Dense(128, activation='elu', input_shape=(7,)),
-    Dropout(0.5),
-    Dense(64, activation='elu'),
-    Dropout(0.5),
-    Dense(32, activation='elu'),
-    Dropout(0.4),
-    Dense(16, activation='elu'),
-    Dropout(0.3),
-    Dense(8, activation='elu'),
+    Dense(8, activation='elu', input_shape=(7,)),
+    Dropout(0.2),
+    Dense(4, activation='elu'),
     Dense(num_classes, activation='softmax')
 ])
 # Compile model
@@ -80,6 +74,14 @@ history = model.fit(
 # Predykcje
 y_pred_train = np.argmax(model.predict(X_train), axis=1)
 y_pred_test = np.argmax(model.predict(X_test), axis=1)
+
+# === Accuracy Score ===
+train_accuracy = accuracy_score(y_train, y_pred_train)
+test_accuracy = accuracy_score(y_test, y_pred_test)
+
+print(f"Train Accuracy: {train_accuracy:.4f}")
+print(f"Test Accuracy:  {test_accuracy:.4f}")
+
 
 # === Wykresy ===
 plt.plot(history.history['accuracy'], label='Train Acc')
